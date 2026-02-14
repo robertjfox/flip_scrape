@@ -1,0 +1,12 @@
+{
+  "markets": [
+    "Nassau County, NY",
+    "Suffolk County, NY"
+  ],
+  "property_type": "SFR",
+  "comp_radius_miles": 1.0,
+  "sqft_band_pct": 0.15,
+  "min_discount_pct": 0.30,
+  "max_days_on_market": 30,
+  "min_comp_count": 5
+}
