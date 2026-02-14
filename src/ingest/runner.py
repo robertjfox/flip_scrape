@@ -16,13 +16,19 @@ def run_ingest(config, conn):
     updated_listings = 0
 
     try:
-        ingest_datafiniti(config, conn)
-    except NotImplementedError as exc:
+        df_result = ingest_datafiniti(config, conn)
+        new_listings += df_result.get("new_listings", 0)
+        updated_listings += df_result.get("updated_listings", 0)
+        if df_result.get("status") != "ok":
+            errors.append(df_result)
+    except Exception as exc:  # noqa: BLE001
         errors.append(str(exc))
 
     try:
-        enrich_with_estated(config, conn)
-    except NotImplementedError as exc:
+        est_result = enrich_with_estated(config, conn)
+        if est_result.get("status") != "ok":
+            errors.append(est_result)
+    except Exception as exc:  # noqa: BLE001
         errors.append(str(exc))
 
     ended_at = _utc_now()

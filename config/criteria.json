@@ -6,7 +6,11 @@
   "property_type": "SFR",
   "comp_radius_miles": 1.0,
   "sqft_band_pct": 0.15,
+  "comp_lookback_days": 365,
   "min_discount_pct": 0.30,
   "max_days_on_market": 30,
-  "min_comp_count": 5
+  "min_comp_count": 5,
+  "datafiniti_lookback_days": 7,
+  "datafiniti_num_records": 50,
+  "estated_max_requests": 50
 }
